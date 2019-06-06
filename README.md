@@ -127,7 +127,7 @@ $ nvm install node
 
 ```
 
-4. ejecuta npm install, y como al ya estar redux y react-redux en el package.json, entonces deberia de instalarse, sino entonces ejecuta npm install redux react-redux
+4. ejecuta ```npm install```, y como al ya estar redux y react-redux en el package.json, entonces deberia de instalarse, sino entonces ejecuta npm install redux react-redux
 5. Despues de darle una revisada al codigo (probar que funcione con npm start) entonces es hora de modificarlo un poco
 6. parados en /src junto al App.js, el index.js y el store.js crear el archivo ActionCreators.js y copiar el siguiente codigo
 
