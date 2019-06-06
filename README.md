@@ -89,8 +89,10 @@ Segundo proyecto para entender redux, pero esta vez unido con un proyecto de rea
 1. clona el repositorio https://github.com/jhriverasa/borrame, y si quieres, renombra la carpeta a carrito_redux
 2. si no actualizaste npm y nvm ejecuta
 
+```
 $ npm update npm
 $ nvm install node
+```
 
 3. ejecuta npm install, y como al ya estar redux y react-redux en el package.json, entonces deberia de instalarse, sino entonces ejecuta npm install redux react-redux
 4. Despues de darle una revisada al codigo (probar que funcione con npm start) entonces es hora de modificarlo un poco
@@ -218,4 +220,10 @@ const mapDispatchToProps = dispatch => {
 }
 export default connect(mapStateToProps, mapDispatchToProps) (ShoppingCart);
 
+```
+
+8. La explicación del codigo se hara durante la sesión de clase pero si no puedes asistir, puedes ver el tutorial de ayuda en 
+
+```
+https://www.youtube.com/watch?v=RZNNu2pO49g&list=PLxyfMWnjW2kuyePV1Gzn5W_gr3BGIZq8G&index=1
 ```
