@@ -34,7 +34,7 @@ const reducerPrincipal = (state = stateInicial, action) => {
 const store = createStore(reducerPrincipal);
 
 // Suscribe o suscripción
-// Se llama cuando el store para una acción utiliza el dispatch y cuando
+// Se llama cuando el store, para alguna acción utiliza el dispatch o cuando
 // el state cambia
 store.subscribe(() => {
     console.log('Algo cambio...', store.getState());
