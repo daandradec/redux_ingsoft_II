@@ -22,9 +22,9 @@ $ nvm install node
 
 1. Crear una carpeta llamada basicos_redux_node
 2. Pararse en esta carpeta
-3. Ejecutar node init
-4. Por facilidad solo insertar campos como : 
-5. una vez creado ejecutar npm install redux
+3. Ejecutar npm init
+4. Por facilidad solo insertar campos como : author y description (opcional), para lo demas solo oprimir enter
+5. una vez creado ejecutar npm install --save redux
 6. Crear en la raiz de basicos_redux_node el archivo basicos_redux.js
 7. Copiar el siguiente codigo
 
