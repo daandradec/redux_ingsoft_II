@@ -22,9 +22,9 @@ $ nvm install node
 
 1. Crear una carpeta llamada basicos_redux_node
 2. Pararse en esta carpeta
-3. Ejecutar npm init
+3. Ejecutar ```npm init```
 4. Por facilidad solo insertar campos como : author y description (opcional), para lo demas solo oprimir enter
-5. una vez creado ejecutar npm install --save redux
+5. una vez creado ejecutar ```npm install --save redux```
 6. Crear en la raiz de basicos_redux_node el archivo basicos_redux.js
 7. Copiar el siguiente codigo
 
@@ -84,7 +84,9 @@ store.dispatch({type:'MOSTRAR_USUARIOS'} /* Este json es un action formado por u
 
 9. Por ultimo ejecutar en la terminal (parados en la raiz donde esta este archivo)
 
+```
 $ node basicos_redux.js
+```
 
 ## REACT Redux
 
@@ -98,9 +100,36 @@ $ npm update npm
 $ nvm install node
 ```
 
-3. ejecuta npm install, y como al ya estar redux y react-redux en el package.json, entonces deberia de instalarse, sino entonces ejecuta npm install redux react-redux
-4. Despues de darle una revisada al codigo (probar que funcione con npm start) entonces es hora de modificarlo un poco
-5. parados en /src junto al App.js, el index.js y el store.js crear el archivo ActionCreators.js y copiar el siguiente codigo
+3. modificar el package.json con 
+
+```
+{
+  "name": "redux-example",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "react-scripts": "0.8.5"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2",
+    "redux": "^4.0.1",
+    "react-redux": "^5.0.7"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
+
+```
+
+4. ejecuta npm install, y como al ya estar redux y react-redux en el package.json, entonces deberia de instalarse, sino entonces ejecuta npm install redux react-redux
+5. Despues de darle una revisada al codigo (probar que funcione con npm start) entonces es hora de modificarlo un poco
+6. parados en /src junto al App.js, el index.js y el store.js crear el archivo ActionCreators.js y copiar el siguiente codigo
 
 ```
 const addToCart = product => {
