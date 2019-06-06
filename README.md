@@ -13,6 +13,10 @@ Redux es un patron de diseño para el mensajo del estado de la aplicación, evit
 
 Para esta primera parte crearemos un codigo sencillo usando redux bajo un proyecto de Node
 
+0. Actualiza Node y npm
+
+$ npm update npm
+$ nvm install node
 
 1. Crear una carpeta llamada basicos_redux_node
 2. Pararse en esta carpeta
@@ -74,5 +78,144 @@ store.dispatch({type:'MOSTRAR_USUARIOS'} /* Este json es un action formado por u
 //console.log(store.getState());
 ```
 
+Por ultimo ejecutar en la terminal (parados en la raiz donde esta este archivo)
+
+$ node basicos_redux.js
+
 ## REACT Redux
 
+Segundo proyecto para entender redux, pero esta vez unido con un proyecto de react.
+
+1. clona el repositorio https://github.com/jhriverasa/borrame, y si quieres, renombra la carpeta a carrito_redux
+2. si no actualizaste npm y nvm ejecuta
+
+$ npm update npm
+$ nvm install node
+
+3. ejecuta npm install, y como al ya estar redux y react-redux en el package.json, entonces deberia de instalarse, sino entonces ejecuta npm install redux react-redux
+4. Despues de darle una revisada al codigo (probar que funcione con npm start) entonces es hora de modificarlo un poco
+5. parados en /src junto al App.js, el index.js y el store.js crear el archivo ActionCreators.js y copiar el siguiente codigo
+
+```
+const addToCart = product => {
+    return {
+        type: "ADD_TO_CART",
+        product
+    }
+}
+
+const removeFromCart = product => {
+    return {
+        type: "REMOVE_FROM_CART",
+        product
+    }
+}
+
+export {addToCart, removeFromCart}
+```
+
+6. ahora como usamos react-redux, la idea es no tener que hacer importaciones del store en nuestros componentes sino que este disponible asi que remplazamos el App.js por
+
+
+```
+import React, { Component } from 'react';
+import { Navbar, Grid, Row, Col } from 'react-bootstrap';
+import ProductList from './components/ProductList';
+import ShoppingCart from './components/ShoppingCart';
+import store from './store';
+import { Provider } from 'react-redux';
+
+class App extends Component {
+  render() {
+    return (
+      <Provider store={store}>
+        <div>
+          <Navbar inverse staticTop>
+            <Navbar.Header>
+              <Navbar.Brand>
+                <a href="#">Ecommerce</a>
+              </Navbar.Brand>
+            </Navbar.Header>
+          </Navbar>
+
+          <Grid>
+            <Row>
+              <Col sm={8}>
+                <ProductList />
+              </Col>
+              <Col sm={4}>
+                <ShoppingCart />
+              </Col>
+            </Row>
+          </Grid>
+        </div>
+      </Provider>
+    );
+  }
+}
+
+export default App;
+
+```
+
+7. Por ultimo modificaremos el ShoppingCart.js para utilizar otra de las funcionalidades de react-redux
+
+```
+import React, { Component } from 'react';
+import { Panel, Table, Button, Glyphicon } from 'react-bootstrap';
+import {removeFromCart} from '../ActionCreators';
+import { connect } from 'react-redux';
+
+const styles = {
+  footer: {
+    fontWeight: 'bold'
+  }
+}
+
+class ShoppingCart extends Component {
+  
+
+  render() {
+    return (
+      <Panel header="Shopping Cart">
+        <Table fill>
+          <tbody>
+            {this.props.cart.map(product =>
+              <tr key={product.id}>
+                <td>{product.name}</td>
+                <td className="text-right">${product.price}</td>
+                <td className="text-right"><Button bsSize="xsmall" bsStyle="danger" onClick={() => this.props.removeFromCart(product)}><Glyphicon glyph="trash" /></Button></td>
+              </tr>
+            )}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan="4" style={styles.footer}>
+                Total: ${this.props.cart.reduce((sum, product) => sum + product.price, 0)}
+              </td>
+            </tr>
+          </tfoot>
+        </Table>
+
+      </Panel>
+    )
+  }
+
+}
+
+const mapStateToProps = state => {
+  return {
+    cart: state.cart
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    removeFromCart(product) {
+      dispatch(removeFromCart(product));
+    }
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps) (ShoppingCart);
+
+```
