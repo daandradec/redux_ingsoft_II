@@ -3,7 +3,7 @@
 para esta sección construiremos dos mini proyectos que serviran para entender mejor redux.
 
 ## Repaso
-Redux es un patron de diseño para el mensajo del estado de la aplicación, evitando un flujo de arbol como lo hacemos con los states de react, y teniendo como unidad de estado un store global para todos los componentes.
+Redux es un patron de diseño para el manejo del estado de la aplicación, evitando un flujo de arbol como lo hacemos con los states de react, y teniendo como unidad de estado un store global para todos los componentes.
 
 ![](https://github.com/daandradec/redux_ingsoft_II/blob/master/ideas_principales.png)
 
@@ -15,8 +15,10 @@ Para esta primera parte crearemos un codigo sencillo usando redux bajo un proyec
 
 0. Actualiza Node y npm
 
+```
 $ npm update npm
 $ nvm install node
+```
 
 1. Crear una carpeta llamada basicos_redux_node
 2. Pararse en esta carpeta
