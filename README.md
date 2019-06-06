@@ -80,7 +80,9 @@ store.dispatch({type:'MOSTRAR_USUARIOS'} /* Este json es un action formado por u
 //console.log(store.getState());
 ```
 
-Por ultimo ejecutar en la terminal (parados en la raiz donde esta este archivo)
+8. Atender a la explicación en clase
+
+9. Por ultimo ejecutar en la terminal (parados en la raiz donde esta este archivo)
 
 $ node basicos_redux.js
 
